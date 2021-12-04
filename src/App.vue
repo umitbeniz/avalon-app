@@ -2,12 +2,15 @@
   <div class="app" id="app">
     <div class="container mx-auto">
       <div class="header-container">
-        <p class="header gradient-text">⚔️ AVALON ⚔️</p>
+        <p class="header gradient-text">⚔️ <img
+          class="logo"
+            src="@/assets/logo2.png"
+            alt="Avalon logo" /> ⚔️</p>
         <p class="sub-text">NFT Game On Avalanche Blockchain</p>
         <div class="connect-wallet-container" v-if="!account">
           <img
-          class="logo"
-            src="@/assets/logo.jpeg"
+          class="banner"
+            src="@/assets/banner.png"
             alt="Avalon logo"
           />
           <button class="cta-button connect-wallet-button" @click="connect">
@@ -18,8 +21,7 @@
         <arena v-else-if="account && characterNFT" />
       </div>
       <div class="footer-container">
-        <a class="footer-text">Built with ❤️</a
-        >
+        <a class="footer-text">Built with ❤️ Avalon Team</a>
       </div>
     </div>
   </div>
@@ -62,19 +64,26 @@ export default {
 
 <style>
 .logo{
-  width: 600px;
-  height: 600px;
+  max-width: 250px;
+  display: initial;
+  margin-top: -35px;
 }
+
+.banner{
+  width: auto;
+  height: auto;
+}
+
 .app {
   height: 100vh;
-  background-color: #ff8177;
+  background-color: #eb5b5b;
   overflow: scroll;
   text-align: center;
 }
 
 .container {
   height: 100%;
-  background-color: #ff867a;
+  background-color: #eb5b5b;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
