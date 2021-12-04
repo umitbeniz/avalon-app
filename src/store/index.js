@@ -69,35 +69,12 @@ export default new Vuex.Store({
         if (!(await dispatch("checkIfConnected")) && connect) {
           await dispatch("requestAccess");
         }
-        await dispatch("checkNetwork");
+        // await dispatch("checkNetwork");
         await dispatch("fetchNFTMetadata");
         await dispatch("setupEventListeners");
       } catch (error) {
         console.log(error);
         commit("setError", "Account request refused.");
-      }
-    },
-    // async checkNetwork({ commit, dispatch }) {//***-----****----*****------*000----- */
-    //   let chainId = await ethereum.request({ method: "eth_chainId" });
-    //   const rinkebyChainId = "0x4";
-    //   if (chainId !== rinkebyChainId) {
-    //     if (!(await dispatch("switchNetwork"))) {
-    //       commit(
-    //         "setError",
-    //         "You are not connected to the Rinkeby Test Network!"
-    //       );
-    //     }
-    //   }
-    // },
-    async switchNetwork() {
-      try {
-        await ethereum.request({
-          method: "wallet_switchEthereumChain",
-          params: [{ chainId: "0x4" }],
-        });
-        return 1;
-      } catch (switchError) {
-        return 0;
       }
     },
     async checkIfConnected({ commit }) {
