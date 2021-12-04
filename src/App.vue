@@ -13,7 +13,7 @@
           </button>
         </div>
         <select-character v-else-if="account && !characterNFT" />
-        <arena v-else-if="account && characterNFT" />
+        <stake v-else-if="account && characterNFT" />
       </div>
       <div class="footer-container">
         <a class="footer-text">Built with ❤️ Avalon Team</a>
@@ -24,7 +24,7 @@
 
 <script>
 import SelectCharacter from "./components/SelectCharacter.vue";
-import Arena from "./components/Arena.vue";
+import Stake from "./components/Stake.vue";
 export default {
   name: "App",
   data() {
@@ -51,7 +51,7 @@ export default {
   },
   components: {
     SelectCharacter,
-    Arena,
+    Stake,
   },
 };
 </script>

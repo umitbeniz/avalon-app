@@ -40,12 +40,12 @@ export default {
   components: {
   },
   methods: {
-    // async mintCharacterNFTAction(index) {
-    //   if (this.minting) return;
-    //   this.minting = true;
-    //   await this.$store.dispatch("mintCharacterNFT", index);
-    //   this.minting = false;
-    // },
+    async mintCharacterNFTAction(index) {
+      if (this.minting) return;
+      this.minting = true;
+      await this.$store.dispatch("mintCharacterNFT", index);
+      this.minting = false;
+    },
   },
   async mounted() {
     this.minting = true;
