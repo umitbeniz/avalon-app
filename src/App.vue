@@ -2,17 +2,12 @@
   <div class="app" id="app">
     <div class="container mx-auto">
       <div class="header-container">
-        <p class="header gradient-text">⚔️ <img
-          class="logo"
-            src="@/assets/logo2.png"
-            alt="Avalon logo" /> ⚔️</p>
+        <p class="header gradient-text">
+          <img class="logo" src="@/assets/logo2.png" alt="Avalon logo" />
+        </p>
         <p class="sub-text">NFT Game On Avalanche Blockchain</p>
         <div class="connect-wallet-container" v-if="!account">
-          <img
-          class="banner"
-            src="@/assets/banner.png"
-            alt="Avalon logo"
-          />
+          <img class="banner" src="@/assets/banner.png" alt="Avalon logo" />
           <button class="cta-button connect-wallet-button" @click="connect">
             Connect Wallet
           </button>
@@ -33,8 +28,7 @@ import Arena from "./components/Arena.vue";
 export default {
   name: "App",
   data() {
-    return {
-    };
+    return {};
   },
   methods: {
     async connect() {
@@ -63,27 +57,27 @@ export default {
 </script>
 
 <style>
-.logo{
+.logo {
   max-width: 250px;
   display: initial;
   margin-top: -35px;
 }
 
-.banner{
+.banner {
   width: auto;
   height: auto;
 }
 
 .app {
   height: 100vh;
-  background-color: #eb5b5b;
+  background-color: rgb(53, 100, 131);
   overflow: scroll;
   text-align: center;
 }
 
 .container {
   height: 100%;
-  background-color: #eb5b5b;
+  background-color: rgb(53, 100, 131);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -136,12 +130,12 @@ export default {
 .connect-wallet-button {
   background-image: linear-gradient(
     to right,
-    #ff8177 0%,
-    #ff867a 0%,
-    #ff8c7f 21%,
-    #f99185 52%,
-    #cf556c 78%,
-    #b12a5b 100%
+    #f36c77 0%,
+    #e43d4b 21%,
+    #fd2236 52%,
+    #fd2236 52%,
+    #fd2236 78%,
+    #fd2236 100%
   );
   background-size: 200% 200%;
   animation: gradient-animation 4s ease infinite;
