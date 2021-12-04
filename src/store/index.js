@@ -24,7 +24,7 @@ export default new Vuex.Store({
     characters: [],
     boss: null,
     attackState: null,
-    contract_address: "0xF527Ea63854E829336644ea3027254D29E6e1660",
+    contract_address: "0xcE186C082078e2bCb77b7C8578257cc163bA36C6",
   },
   getters: {
     account: (state) => state.account,

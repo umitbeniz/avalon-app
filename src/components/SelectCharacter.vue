@@ -95,7 +95,7 @@ export default {
 
 .character-item .name-container {
   position: absolute;
-  background-color: #838383;
+  background-color: #fd2236;
   border-radius: 5px;
   margin: 10px;
 }
@@ -107,19 +107,36 @@ export default {
 }
 
 .character-item .character-mint-button {
-  position: absolute;
+  /* position: absolute;
   bottom: 0;
-  width: 100%;
+  /* width: 100%; */
   height: 40px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   border: none;
   cursor: pointer;
-  background-color: rgb(32, 129, 226);
+  /* background-color: rgb(32, 129, 226); */
   color: white;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 16px; 
+
+  background-image: linear-gradient(
+    to right,
+    #f36c77 0%,
+    #e43d4b 21%,
+    #fd2236 52%,
+    #fd2236 52%,
+    #fd2236 78%,
+    #fd2236 100%
+  );
+  background-size: 200% 200%;
+  animation: gradient-animation 4s ease infinite;
+  background-color: #a200d6;
+
 }
+
+
+
 
 .select-character-container .loading {
   display: flex;
