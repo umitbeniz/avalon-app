@@ -12,6 +12,7 @@ const transformCharacterData = (characterData) => {
     hp: characterData.hp.toNumber(),
     maxHp: characterData.maxHp.toNumber(),
     attackDamage: characterData.attackDamage.toNumber(),
+    staked: characterData.staked
   };
 };
 
@@ -24,7 +25,7 @@ export default new Vuex.Store({
     characters: [],
     boss: null,
     attackState: null,
-    contract_address: "0xcE186C082078e2bCb77b7C8578257cc163bA36C6",
+    contract_address: "0x9628f2dE42e63d6739Ccb8714C36737E7C7B0060",
   },
   getters: {
     account: (state) => state.account,
@@ -75,6 +76,29 @@ export default new Vuex.Store({
       } catch (error) {
         console.log(error);
         commit("setError", "Account request refused.");
+      }
+    },
+    async checkNetwork({ commit, dispatch }) {//***-----****----*****------*000----- */
+      let chainId = await ethereum.request({ method: "eth_chainId" });
+      const rinkebyChainId = "0x4";
+      if (chainId !== rinkebyChainId) {
+        if (!(await dispatch("switchNetwork"))) {
+          commit(
+            "setError",
+            "You are not connected to the Rinkeby Test Network!"
+          );
+        }
+      }
+    },
+    async switchNetwork() {
+      try {
+        await ethereum.request({
+          method: "wallet_switchEthereumChain",
+          params: [{ chainId: "0x4" }],
+        });
+        return 1;
+      } catch (switchError) {
+        return 0;
       }
     },
     async checkIfConnected({ commit }) {
@@ -181,6 +205,24 @@ export default new Vuex.Store({
         const connectedContract = await dispatch("getContract");
         const mintTxn = await connectedContract.mintCharacterNFT(characterId);
         await mintTxn.wait();
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async stakeCharacterNFT({ commit, dispatch }, characterId) {
+      try {
+        const connectedContract = await dispatch("getContract");
+        const stakeTxn = await connectedContract.stake(characterId, 0);
+        await stakeTxn.wait();
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async claimCharacterNFT({ commit, dispatch }, characterId) {
+      try {
+        const connectedContract = await dispatch("getContract");
+        const claimTxn = await connectedContract.claim(characterId);
+        await claimTxn.wait();
       } catch (error) {
         console.log(error);
       }

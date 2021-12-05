@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+node_modules
+package-lock.json
+=======
 node_modules/*
 package-lock.json
-dist
+>>>>>>> ad51944b77d96c4e849faec7e02da56c3c7d3dab
