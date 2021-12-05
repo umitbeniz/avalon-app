@@ -172,6 +172,10 @@ export default {
   font-weight: bold;
 }
 
+.body {
+  margin: 0px !important;
+}
+
 /* KeyFrames */
 @-webkit-keyframes gradient-animation {
   0% {
