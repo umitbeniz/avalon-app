@@ -1,9 +1,9 @@
 <template>
   <div class="arena-container">
-    <div class="players-container" v-if="characterNFT">
-      <div class="player-container">
-        <h2>Your Character</h2>
-        <div class="player">
+    <div class="players-container">
+      <div class="player-container" >
+        <h2>In Wallet</h2>
+        <div class="player" v-if="!characterNFT.staked">
           <div class="image-content">
             <h2>{{ characterNFT.name }}</h2>
             <img
@@ -12,13 +12,26 @@
             ${characterNFT.name}`"
             />
           </div>
+          <div class="stats">
+            <h4>{{ `Experience: ${characterNFT.attackDamage}` }}</h4>
+          </div>
+          <button
+            type="button"
+            class="character-stake-button"
+            @click="stakeCharacter"
+          >
+            {{ `Stake` }}
+          </button>
         </div>
+        
       </div>
+        
     </div>
-    <div class="players-container" v-if="characterNFT">
+
+    <div class="players-container">
       <div class="player-container">
-        <h2>Your Character</h2>
-        <div class="player">
+        <h2>Staked</h2>
+        <div class="player" v-if="characterNFT.staked">
           <div class="image-content">
             <h2>{{ characterNFT.name }}</h2>
             <img
@@ -27,18 +40,49 @@
             ${characterNFT.name}`"
             />
           </div>
+          <div class="stats">
+            <h4>{{ `Experience: ${characterNFT.attackDamage}` }}</h4>
+            <button
+            type="button"
+            class="character-stake-button"
+            @click="claimCharacter"
+          >
+            {{ `Unstake` }}
+          </button>
+          </div>
         </div>
       </div>
     </div>
+
   </div>
 </template>
 
 <script>
 
 export default {
+  components: {
+  },
   methods: {
+    async attackAction() {
+      await this.$store.dispatch("attackBoss");
+    },
+    async stakeCharacter() {
+      if (this.minting) return;
+      this.minting = true;
+      await this.$store.dispatch("stakeCharacterNFT", 1);
+      await this.$store.dispatch("fetchNFTMetadata");
+      this.minting = false;
+    },
+    async claimCharacter() {
+      if (this.minting) return;
+      this.minting = true;
+      await this.$store.dispatch("claimCharacterNFT", 1);
+      await this.$store.dispatch("fetchNFTMetadata");
+      this.minting = false;
+    },
   },
   async mounted() {
+    await this.$store.dispatch("fetchBoss");
   },
   computed: {
     boss() {
@@ -55,10 +99,29 @@ export default {
 </script>
 
 <style scoped>
+.character-stake-button {
+  /* position: absolute;
+  bottom: 0;
+  /* width: 100%; */
+  height: 40px;
+  border-radius: 10px;
+  /* border-bottom-right-radius: 10px; */
+  border: none;
+  cursor: pointer;
+  /* background-color: rgb(32, 129, 226); */
+  color: white;
+  font-weight: bold;
+  font-size: 16px; 
+  margin-top: 15px;
+  background-color: red;
+  padding: 5px 10px;
+  animation: gradient-animation 4s ease infinite;
+}
+
 .arena-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  /* align-items: center; */
   margin: auto;
   color: white;
 }
@@ -158,7 +221,7 @@ export default {
 
 .player .image-content img {
   width: 250px;
-  height: 300px;
+  height: 280px;
   border-radius: 10px;
   object-fit: cover;
 }
