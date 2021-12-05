@@ -3,7 +3,7 @@
     <div class="container mx-auto">
       <div class="header-container">
         <p class="header gradient-text">
-          <img class="logo" src="@/assets/logo2.png" alt="Avalon logo" />
+          <a href="https://www.avaxmart.com"><img class="logo" src="@/assets/logo2.png" alt="Avalon logo" /></a> 
         </p>
         <p class="sub-text">NFT Game On Avalanche Blockchain</p>
         <div class="connect-wallet-container" v-if="!account">
