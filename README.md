@@ -1,4 +1,4 @@
-# frontend_vue
+# avalon-app
 
 ## Project setup
 ```

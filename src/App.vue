@@ -3,17 +3,17 @@
     <div class="container mx-auto">
       <div class="header-container">
         <p class="header gradient-text">
-          <img class="logo" src="@/assets/logo2.png" alt="Avalon logo" />
+          <a href="https://www.avaxmart.com"><img class="logo" src="@/assets/logo2.png" alt="Avalon logo" /></a> 
         </p>
         <p class="sub-text">NFT Game On Avalanche Blockchain</p>
         <div class="connect-wallet-container" v-if="!account">
-          <img class="banner" src="@/assets/banner.png" alt="Avalon logo" />
+          <img class="banner" src="@/assets/banner.gif" alt="Avalon logo" />
           <button class="cta-button connect-wallet-button" @click="connect">
             Connect Wallet
           </button>
         </div>
         <select-character v-else-if="account && !characterNFT" />
-        <arena v-else-if="account && characterNFT" />
+        <stake v-else-if="account && characterNFT" />
       </div>
       <div class="footer-container">
         <a class="footer-text">Built with ❤️ Avalon Team</a>
@@ -24,7 +24,7 @@
 
 <script>
 import SelectCharacter from "./components/SelectCharacter.vue";
-import Arena from "./components/Arena.vue";
+import Stake from "./components/Stake.vue";
 export default {
   name: "App",
   data() {
@@ -51,7 +51,7 @@ export default {
   },
   components: {
     SelectCharacter,
-    Arena,
+    Stake,
   },
 };
 </script>
@@ -170,6 +170,10 @@ export default {
   color: white;
   font-size: 16px;
   font-weight: bold;
+}
+
+body {
+  margin: 0px !important;
 }
 
 /* KeyFrames */
