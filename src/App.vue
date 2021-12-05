@@ -7,7 +7,7 @@
         </p>
         <p class="sub-text">NFT Game On Avalanche Blockchain</p>
         <div class="connect-wallet-container" v-if="!account">
-          <img class="banner" src="@/assets/banner.png" alt="Avalon logo" />
+          <img class="banner" src="@/assets/banner.gif" alt="Avalon logo" />
           <button class="cta-button connect-wallet-button" @click="connect">
             Connect Wallet
           </button>
