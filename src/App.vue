@@ -172,7 +172,7 @@ export default {
   font-weight: bold;
 }
 
-.body {
+body {
   margin: 0px !important;
 }
 
