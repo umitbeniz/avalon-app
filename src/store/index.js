@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import { ethers } from "ethers";
-import MyEpicGame from "../utils/MyEpicGame.json";
+import AvalonABI from "../utils/contractABI.json";
 
 Vue.use(Vuex);
 
@@ -125,7 +125,7 @@ export default new Vuex.Store({
         const signer = provider.getSigner();
         const connectedContract = new ethers.Contract(
           state.contract_address,
-          MyEpicGame.abi,
+          AvalonABI.abi,
           signer
         );
         return connectedContract;
