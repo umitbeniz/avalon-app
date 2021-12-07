@@ -1,7 +1,7 @@
 {
   "_format": "hh-sol-artifact-1",
-  "contractName": "MyEpicGame",
-  "sourceName": "contracts/MyEpicGame.sol",
+  "contractName": "Avalon",
+  "sourceName": "contract/Avalon.sol",
   "abi": [
     {
       "inputs": [

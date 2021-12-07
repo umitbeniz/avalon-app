@@ -8,24 +8,18 @@
             <h2>{{ characterNFT.name }}</h2>
             <img
               :src="characterNFT.imageURI"
-              :alt="`Character
-            ${characterNFT.name}`"
             />
           </div>
           <div class="stats">
-            <h4>{{ `Experience: ${characterNFT.attackDamage}` }}</h4>
+            <h4>Experience {{ characterNFT.attackDamage }}</h4>
           </div>
           <button
             type="button"
             class="character-stake-button"
             @click="stakeCharacter"
-          >
-            {{ `Stake` }}
-          </button>
+          >Stake</button>
         </div>
-        
       </div>
-        
     </div>
 
     <div class="players-container">
@@ -36,24 +30,19 @@
             <h2>{{ characterNFT.name }}</h2>
             <img
               :src="characterNFT.imageURI"
-              :alt="`Character
-            ${characterNFT.name}`"
             />
           </div>
           <div class="stats">
-            <h4>{{ `Experience: ${characterNFT.attackDamage}` }}</h4>
+            <h4>Experience {{ characterNFT.attackDamage }}</h4>
             <button
             type="button"
             class="character-stake-button"
             @click="claimCharacter"
-          >
-            {{ `Unstake` }}
-          </button>
+            >Unstake</button>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </template>
 

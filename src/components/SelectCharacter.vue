@@ -15,14 +15,11 @@
           type="button"
           class="character-mint-button"
           @click="mintCharacterNFTAction(index)"
-        >
-          {{ `Mint ${character.name}` }}
-        </button>
+        > Mint {{  character.name }}</button>
       </div>
     </div>
     <div class="loading" v-else>
       <div class="indicator">
-        <loading-indicator />
         <p>Minting...</p>
       </div>
      
